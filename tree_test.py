@@ -1,1 +1,2 @@
-form tree import *
+from tree import *
+
