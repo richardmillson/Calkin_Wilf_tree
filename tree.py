@@ -7,10 +7,8 @@ def succ_fcn(x):
     takes an element of the Calkin Wilf tree and returns the next element
     following a breadth first traversal
     """
-    print float(x), Fraction(x % 1)
     x_int = Fraction(math.floor(x))
     x_nonint = Fraction(x.numerator - x_int * x.denominator, x.denominator)
-    print x_nonint
     return Fraction(1 / (x_int + 1 - x_nonint))
 
 
