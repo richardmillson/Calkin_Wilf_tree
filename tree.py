@@ -7,7 +7,7 @@ def succ_fcn(x):
     takes an element of the Calkin Wilf tree and returns the next element
     following a breadth first traversal
     """
-    print x, math.floor(x), 1 - (x % 1), Fraction(1 / (math.floor(x) + 1 - (x % 1)))
+    print float(x), Fraction(x % 1)
     return Fraction(1 / (math.floor(x) + 1 - (x % 1)))
 
 
@@ -17,6 +17,6 @@ def get_nth(n):
     following a breadth first traversal
     """
     node = Fraction(1, 1)
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         node = succ_fcn(node)
     return node
