@@ -12,6 +12,15 @@ def succ_fcn(x):
     return Fraction(1 / (x_int + 1 - x_nonint))
 
 
+def generator_succ(x):
+    """
+    a generator for the entire Calkin Wilf tree
+    """
+    x_int = Fraction(math.floor(x))
+    x_nonint = Fraction(x.numerator - x_int * x.denominator, x.denominator)
+    yield Fraction(1 / (x_int + 1 - x_nonint))
+
+
 def get_nth(n):
     """
     takes a natural number n and returns the nth element of the Calkin Wilf tree
