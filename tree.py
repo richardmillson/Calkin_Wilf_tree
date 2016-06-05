@@ -7,6 +7,8 @@ def succ(x):
     """
     takes an element of the Calkin Wilf tree and returns the next element
     following a breadth first traversal
+    :param x: Fraction
+    :return: Fraction
     """
     x_int = Fraction(math.floor(x))
     x_nonint = Fraction(x.numerator - x_int * x.denominator, x.denominator)
@@ -27,19 +29,23 @@ def entire_tree():
 
 def get_nth(n):
     """
-    takes a positive integer n and returns the nth element of the Calkin Wilf tree
-    following a breadth first traversal
-    :param n: int
+    returns the nth element of the tree following a breadth first traversal
+    :param n: positive int
     :return: Fraction
     """
-    return get_slice(n - 1, n)[0]
+    x = Fraction(1, 1)
+    i = 0
+    while i < n:
+        x = succ(x)
+        i += 1
+    return x
 
 
 def get_slice(start, stop):
     """
     return a finite sublist from the infinite generator
-    :param start: int
-    :param stop: int
-    :return: list
+    :param start: positive int
+    :param stop: positive int greater than start
+    :return: tuple
     """
     return tuple(itertools.islice(entire_tree(), start, stop))
