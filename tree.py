@@ -33,12 +33,7 @@ def get_nth(n):
     :param n: positive int
     :return: Fraction
     """
-    x = Fraction(1, 1)
-    i = 0
-    while i < n:
-        x = succ(x)
-        i += 1
-    return x
+    return get_slice(n, n + 1)[0]
 
 
 def get_slice(start, stop):

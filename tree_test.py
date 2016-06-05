@@ -28,7 +28,12 @@ def time_get_nth(n):
     :return: float
     """
     start = timeit.default_timer()
-    get_nth(n)
+    x = Fraction(1, 1)
+    i = 0
+    while i < n:
+        x = succ(x)
+        i += 1
+    print x
     stop = timeit.default_timer() - start
     return stop
 
@@ -40,17 +45,18 @@ def time_get_slice(n):
     :return: float
     """
     start = timeit.default_timer()
-    get_slice(n-1, n)
+    print tuple(itertools.islice(entire_tree(), n, n + 1))[0]
     stop = timeit.default_timer() - start
     return stop
+
+
+def compare_times():
+    n = 100000
+    print "get_nth", time_get_nth(n)#, get_nth(n)
+    print "get_slice", time_get_slice(n)#, get_slice(n, n + 1)[0]
 
 
 test_succ()
 test_entire_tree()
 test_get_nth()
-
-print given_first_7
-n = 2
-print time_get_nth(n), get_nth(n)
-print time_get_slice(n), get_slice(n, n + 1)[0]
-# print time_get_nth(100000)
+# compare_times()
