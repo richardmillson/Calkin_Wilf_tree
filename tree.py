@@ -16,6 +16,7 @@ def succ(x):
 def entire_tree():
     """
     a generator for the entire Calkin Wilf tree
+    :return: generator of Fraction
     """
     x = Fraction(1, 1)
     yield x
@@ -28,9 +29,17 @@ def get_nth(n):
     """
     takes a positive integer n and returns the nth element of the Calkin Wilf tree
     following a breadth first traversal
+    :param n: int
+    :return: Fraction
     """
     return get_slice(n - 1, n)[0]
 
 
 def get_slice(start, stop):
-    return list(itertools.islice(entire_tree(), start, stop))
+    """
+    return a finite sublist from the infinite generator
+    :param start: int
+    :param stop: int
+    :return: list
+    """
+    return tuple(itertools.islice(entire_tree(), start, stop))

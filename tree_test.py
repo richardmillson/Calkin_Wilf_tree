@@ -1,24 +1,22 @@
 from tree import *
 
-first_7 = [Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3), Fraction(3, 2), Fraction(2, 3), Fraction(3, 1)]
+given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3), Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
 
 
 def test_succ():
-    gen_7 = [Fraction(1, 1)]
-    for n in range(2, 8):
-        gen_7 += [succ(gen_7[n - 2])]
-    assert first_7 == gen_7
+    for n in range(len(given_first_7) - 1):
+        assert succ(given_first_7[n]) == given_first_7[n + 1]
 
 
 def test_entire_tree():
     start = 0
     stop = 7
-    gen_7 = get_slice(start, stop)
-    assert first_7 == gen_7
+    generated_first_7 = get_slice(start, stop)
+    assert generated_first_7 == given_first_7
 
 
 def test_get_nth():
-    assert first_7[6] == get_nth(7)
+    assert get_nth(7) == given_first_7[6]
 
 
 test_succ()
