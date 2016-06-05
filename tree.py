@@ -1,5 +1,6 @@
 import math
 from fractions import Fraction
+import itertools
 
 
 def succ_fcn(x):
@@ -12,13 +13,17 @@ def succ_fcn(x):
     return Fraction(1 / (x_int + 1 - x_nonint))
 
 
-def generator_succ(x):
+def generator_succ():
     """
     a generator for the entire Calkin Wilf tree
     """
-    x_int = Fraction(math.floor(x))
-    x_nonint = Fraction(x.numerator - x_int * x.denominator, x.denominator)
-    yield Fraction(1 / (x_int + 1 - x_nonint))
+    x = Fraction(1, 1)
+    yield x
+    while True:
+        x_int = Fraction(math.floor(x))
+        x_nonint = Fraction(x.numerator - x_int * x.denominator, x.denominator)
+        x = Fraction(1 / (x_int + 1 - x_nonint))
+        yield x
 
 
 def get_nth(n):

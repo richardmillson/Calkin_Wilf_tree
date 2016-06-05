@@ -11,4 +11,12 @@ def test_succ_fcn():
 
     assert first_7 == gen_7
 
+def test_generator_succ():
+    start = 0
+    end = 7
+    gen_7 = list(itertools.islice(generator_succ(), start, end))
+    print gen_7
+    print len(gen_7)
+
 test_succ_fcn()
+test_generator_succ()
