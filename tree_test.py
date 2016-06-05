@@ -13,12 +13,13 @@ def test_succ():
 def test_entire_tree():
     start = 0
     stop = 7
-    gen_7 = list(itertools.islice(entire_tree(), start, stop))
+    gen_7 = get_slice(start, stop)
     assert first_7 == gen_7
 
 
 def test_get_nth():
     assert first_7[6] == get_nth(7)
+
 
 test_succ()
 test_entire_tree()

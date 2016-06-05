@@ -29,4 +29,8 @@ def get_nth(n):
     takes a positive integer n and returns the nth element of the Calkin Wilf tree
     following a breadth first traversal
     """
-    return list(itertools.islice(entire_tree(), n - 1, n))[0]
+    return get_slice(n - 1, n)[0]
+
+
+def get_slice(start, stop):
+    return list(itertools.islice(entire_tree(), start, stop))
