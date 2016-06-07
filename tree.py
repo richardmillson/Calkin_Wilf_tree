@@ -2,6 +2,10 @@ import math
 from fractions import Fraction
 import itertools
 
+# TODO given a rational number, find its location in the tree
+# TODO visually display the tree
+# TODO look at the distribution of elements over the reals
+
 
 def succ(x):
     """

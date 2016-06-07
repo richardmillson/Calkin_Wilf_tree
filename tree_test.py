@@ -1,7 +1,8 @@
 from tree import *
 import timeit
 
-given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3), Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
+given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3)
+                 , Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
 
 
 def test_succ():
@@ -40,7 +41,7 @@ def time_get_nth(n):
 
 def time_get_slice(n):
     """
-    time how long it takes get_slice to get the nth element
+    time how long it takes slice to get the nth element
     :param n: positive int
     :return: float
     """
