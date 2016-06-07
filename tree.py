@@ -48,3 +48,30 @@ def get_slice(start, stop):
     :return: tuple
     """
     return tuple(itertools.islice(entire_tree(), start, stop))
+
+
+def is_power_of_two(number):
+    """
+    returns true if num is a power of 2
+    :param number: int
+    :return: Bool
+    """
+    return (number != 0) and (number & (number - 1) == 0)
+
+
+def display_slice(start, stop):
+    """
+    print a sublist of the tree
+    :param start: positive int
+    :param stop: positive int greater than start
+    :return: string
+    """
+    display = ""
+    position = 0
+    for node in get_slice(start, stop):
+        display += str(node) + ","
+        if position % 2 == 0:
+            display += "\n"
+        position += 1
+    display += "\n"
+    return display

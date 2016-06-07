@@ -57,7 +57,22 @@ def compare_times():
     print "get_slice", time_get_slice(n)#, get_slice(n, n + 1)[0]
 
 
+def test_is_power_of_two():
+    assert is_power_of_two(0) == False
+    assert is_power_of_two(1) == True
+    assert is_power_of_two(2) == True
+    assert is_power_of_two(3) == False
+    assert is_power_of_two(4) == True
+
+
+def test_display_slice():
+    display = display_slice(0, 20)
+    print display
+
+
 test_succ()
 test_entire_tree()
 test_get_nth()
 # compare_times()
+test_is_power_of_two()
+test_display_slice()
