@@ -52,11 +52,23 @@ def get_slice(start, stop):
 
 def is_power_of_two(number):
     """
-    returns true if num is a power of 2
+    returns true if number is a power of 2
     :param number: int
     :return: Bool
     """
     return (number != 0) and (number & (number - 1) == 0)
+
+
+def new_level(number):
+    """
+    returns true if number is the sum of all powers of 2
+    less than some arbitrary number
+    ie following a breadth first traversal
+    this node is the first of a new level
+    :param number: int
+    :return: Bool
+    """
+    return (number != 0) and (number & (number + 1) == 0)
 
 
 def display_slice(start, stop):
@@ -67,11 +79,20 @@ def display_slice(start, stop):
     :return: string
     """
     display = ""
-    position = 0
+    position = 1
     for node in get_slice(start, stop):
-        display += str(node) + ","
-        if position % 2 == 0:
+        display += str(node) + ", "
+        if new_level(position):
             display += "\n"
         position += 1
     display += "\n"
     return display
+
+
+def get_position(node):
+    position = 1
+    while node.denominator != 1:
+        node = succ(node)
+        position += 1
+    position = 2**node.numerator - position - 1
+    return position

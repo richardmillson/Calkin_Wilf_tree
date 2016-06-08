@@ -65,9 +65,27 @@ def test_is_power_of_two():
     assert is_power_of_two(4) == True
 
 
+def test_new_level():
+    # for i in range(0, 18):
+    #     print i, new_level(i)
+    assert new_level(0) == False
+    assert new_level(1) == True
+    assert new_level(2) == False
+    assert new_level(3) == True
+    assert new_level(4) == False
+    assert new_level(5) == False
+    assert new_level(6) == False
+    assert new_level(7) == True
+
+
 def test_display_slice():
-    display = display_slice(0, 20)
-    print display
+    display = display_slice(0, 2**6 - 1)
+    # print display
+
+
+def test_get_position():
+    for i in range(0, 8):
+        print i, get_position(get_nth(i)), get_nth(i)
 
 
 test_succ()
@@ -76,3 +94,5 @@ test_get_nth()
 # compare_times()
 test_is_power_of_two()
 test_display_slice()
+test_new_level()
+test_get_position()
