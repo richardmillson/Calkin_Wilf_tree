@@ -89,7 +89,8 @@ def test_get_position():
 
 
 def test_plot_distribution():
-    plot_distribution(64)
+    n = 64
+    plot_distribution(n)
 
 
 test_succ()

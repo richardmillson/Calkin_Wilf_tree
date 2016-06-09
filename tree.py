@@ -107,8 +107,8 @@ def plot_distribution(n):
     :return:
     """
     x = get_slice(0, n)
-    y = [0 for n in x]
-    print x, y
-    plt.plot(x, y, ".")
-    plt.axis([0, 7, -1, 1])
+    y = [Fraction(1, position) for position in range(1, len(x) + 1)]
+    # y = [0 for position in range(1, len(x) + 1)]
+    plt.plot(x, y, "o")
+    plt.axis([0, int(math.floor(math.log(n, 2))) + 1, 0, 1.1])
     plt.show()
