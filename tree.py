@@ -1,10 +1,7 @@
 import math
 from fractions import Fraction
 import itertools
-
-# TODO given a rational number, find its location in the tree
-# TODO visually display the tree
-# TODO look at the distribution of elements over the reals
+import matplotlib.pyplot as plt
 
 
 def succ(x):
@@ -90,9 +87,28 @@ def display_slice(start, stop):
 
 
 def get_position(node):
+    """
+    given a rational number, find where it occurs in the tree
+    :param node: Fraction
+    :return: positive int
+    """
     position = 1
     while node.denominator != 1:
         node = succ(node)
         position += 1
     position = 2**node.numerator - position - 1
     return position
+
+
+def plot_distribution(n):
+    """
+    plot the distribution of the first n elements over the reals
+    :param n: positive int
+    :return:
+    """
+    x = get_slice(0, n)
+    y = [0 for n in x]
+    print x, y
+    plt.plot(x, y, ".")
+    plt.axis([0, 7, -1, 1])
+    plt.show()

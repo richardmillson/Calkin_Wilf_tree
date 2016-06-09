@@ -84,8 +84,12 @@ def test_display_slice():
 
 
 def test_get_position():
-    for i in range(0, 8):
-        print i, get_position(get_nth(i)), get_nth(i)
+    for i in range(0, 16):
+        assert i == get_position(get_nth(i))
+
+
+def test_plot_distribution():
+    plot_distribution(64)
 
 
 test_succ()
@@ -96,3 +100,4 @@ test_is_power_of_two()
 test_display_slice()
 test_new_level()
 test_get_position()
+test_plot_distribution()
