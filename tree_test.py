@@ -1,4 +1,5 @@
 from tree import *
+from tree_plot import *
 import timeit
 
 given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3)
@@ -66,8 +67,6 @@ def test_is_power_of_two():
 
 
 def test_new_level():
-    # for i in range(0, 18):
-    #     print i, new_level(i)
     assert new_level(0) == False
     assert new_level(1) == True
     assert new_level(2) == False
@@ -80,7 +79,7 @@ def test_new_level():
 
 def test_display_slice():
     display = display_slice(0, 2**6 - 1)
-    # print display
+    print display
 
 
 def test_get_position():
@@ -98,7 +97,7 @@ test_entire_tree()
 test_get_nth()
 # compare_times()
 test_is_power_of_two()
-test_display_slice()
+# test_display_slice()
 test_new_level()
 test_get_position()
 test_plot_distribution()
