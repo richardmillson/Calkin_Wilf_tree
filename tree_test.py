@@ -89,7 +89,7 @@ def test_get_position():
 
 
 def test_plot_distribution():
-    n = 64
+    n = 1048
     plot_distribution(n)
 
 
