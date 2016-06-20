@@ -1,34 +1,27 @@
+from tree_plot import *
+from tree import *
 import timeit
 
-import sys
-import os
-print sys.path
-sys.path.append(os.getcwd())
-print sys.path
 
-from tree import *
-from tree_plot import *
-
-
-given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3)
-                 , Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
+first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3),
+           Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
 
 
 def test_succ():
-    for n in range(len(given_first_7) - 1):
-        assert succ(given_first_7[n]) == given_first_7[n + 1]
+    for n in range(len(first_7) - 1):
+        assert succ(first_7[n]) == first_7[n + 1]
 
 
 def test_entire_tree():
     start = 0
     stop = 7
     generated_first_7 = get_slice(start, stop)
-    assert generated_first_7 == given_first_7
+    assert generated_first_7 == first_7
 
 
 def test_get_nth():
-    assert get_nth(3) == given_first_7[3]
-    assert get_nth(6) == given_first_7[6]
+    assert get_nth(3) == first_7[3]
+    assert get_nth(6) == first_7[6]
 
 
 def time_get_nth(n):
