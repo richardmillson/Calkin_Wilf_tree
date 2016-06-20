@@ -1,5 +1,4 @@
 from tree_plot import *
-from tree import *
 import timeit
 
 
