@@ -1,6 +1,14 @@
+import timeit
+
+import sys
+import os
+print sys.path
+sys.path.append(os.getcwd())
+print sys.path
+
 from tree import *
 from tree_plot import *
-import timeit
+
 
 given_first_7 = (Fraction(1, 1), Fraction(1, 2), Fraction(2, 1), Fraction(1, 3)
                  , Fraction(3, 2), Fraction(2, 3), Fraction(3, 1))
